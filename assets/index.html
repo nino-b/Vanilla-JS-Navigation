@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WordWise</title>
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav aria-label="Primary Navigation">
+            <ul>
+                <li class="profile-page" aria-label="Log In">
+                    <section class="profile-card">
+                        <img 
+                        class="profile-img" 
+                        src="icons/favicon.svg" 
+                        alt="Global communication icon featuring a blue globe inside a speech bubble">
+                        Log In
+                    </section>
+                </li>
+                <li class="home-page" aria-label="Home">
+                    <button class="home-page">
+                        <img 
+                        src="icons/favicon.svg" 
+                        alt="Home icon">
+                        Home
+                    </button>
+                </li>
+                <li class="settings-page">
+                    <section class="settings-page">
+                        <img 
+                        class="settings-off" 
+                        src="./icons/settings_off.svg" 
+                        alt="Settings logo off">
+                        
+                        <img 
+                        class="settings-on" 
+                        src="icons/settings_on.svg" 
+                        alt="Settings logo on" 
+                        aria-hidden="true" 
+                        hidden>
+                        Settings
+                    </section>
+                </li>
+            </ul>
+        </nav>
+        <hr>
+    </header>
+    <main>
+        <section class="translate" aria-label="Language Translation">
+            <div class="language-modal">
+                <input type="text" class="language-search" placeholder="Search for languages..." aria-label="Search Languages">
+                <div class="language-list" role="list"></div>
+                <!-- js will add languages here -->
+            </div>
+        </section>
+        <button class="word-of-the-day" aria-label="Word Of The Day">
+            Word Of The Day
+            <img src="icons/light_bulb.svg" alt="">
+        </button>
+        <button class="games" aria-label="Games">
+            Games
+            <img src="icons/game.svg" alt="">
+        </button>
+        <button class="favorites" aria-label="Favorites">
+            Favorites
+            <img src="icons/star_on.svg" alt="">
+        </button>
+        <button class="history" aria-label="History">
+            History
+            <img src="icons/history.svg" alt="">
+        </button>
+    </main>
+    <footer aria-label="Footer Navigation">
+        <hr>
+        <nav>
+            <ul>
+                <li class="home-page" role="button" tabindex="0" aria-label="Home page">Home</li>
+                <li class="About-page" role="button" tabindex="0" aria-label="About Page">About Page</li>
+                <li class="Author-page" role="button" tabindex="0" aria-label="Author">Author</li>
+            </ul>
+        </nav>
+    </footer>
+</body>
+</html>
