@@ -1,0 +1,31 @@
+{
+  "name": "wordwise",
+  "version": "1.0.0",
+  "description": "WordWise app by Nino Burtchuladze",
+  "main": "main.js",
+  "scripts": {
+    "start": "parcel index.html",
+    "build": "parcel build index.html",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nino-b/WordWise.git"
+  },
+  "keywords": [
+    "dictionary",
+    "exercise",
+    "learn",
+    "educational",
+    "education"
+  ],
+  "author": "Nino Burtchuladze",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nino-b/WordWise/issues"
+  },
+  "homepage": "https://github.com/nino-b/WordWise#readme",
+  "devDependencies": {
+    "parcel": "^2.12.0"
+  }
+}
