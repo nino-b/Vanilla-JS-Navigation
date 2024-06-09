@@ -2,9 +2,10 @@
   "name": "wordwise",
   "version": "1.0.0",
   "description": "WordWise app by Nino Burtchuladze",
-  "main": "main.js",
+  "main": "main.mjs",
   "scripts": {
-    "start": "node main.js parcel index.html",
+    "start": "concurrently \"node proxy-server.js\" \"parcel index.html\"",
+    "proxy": "node proxy-server.js",
     "build": "parcel build index.html",
     "test": "jest"
   },
@@ -29,6 +30,7 @@
     "assert": "^2.1.0",
     "browserify-zlib": "^0.2.0",
     "buffer": "^6.0.3",
+    "concurrently": "^8.2.2",
     "crypto-browserify": "^3.12.0",
     "events": "^3.3.0",
     "parcel": "^2.12.0",
@@ -46,6 +48,7 @@
     "body-parser": "^1.20.2",
     "dotenv": "^16.4.5",
     "express": "^4.19.2",
+    "node-fetch": "^3.3.2",
     "request": "^2.88.2"
   }
 }
