@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WordZest</title>
+    <link rel="icon" href="/assets/icons/favicon.svg">
     <link rel="stylesheet" href="reset.css">
     <link rel="stylesheet" href="style.css">
     <script type="module" src="main.js" defer></script>
@@ -12,47 +13,18 @@
     <header>
         <nav aria-label="Primary Navigation">
             <ul>
-                <li class="home-page" aria-label="Home">
-                    <button class="home-page">
-                        <img 
-                        src="/assets/icons/favicon.svg" 
-                        alt="Home icon">
-                        Home
-                    </button>
+                <li>
+                    <a href="/" class="nav-item" aria-label="Home">Home</a>
                 </li>
-                <li class="settings-page">
-                    <section class="settings-page">
-                        Settings
-                    </section>
+                <li>
+                    <a href="/translate" class="nav-item" aria-label="Translate">Translate</a>
                 </li>
+                <li></li>
             </ul>
         </nav>
         <hr>
     </header>
     <main>
-        <section class="translate" aria-label="Language Translation">
-            <div class="language-modal">
-                <input type="text" class="language-search" placeholder="Search for languages..." aria-label="Search Languages">
-                <div class="language-list" role="list"></div>
-                <!-- js will add languages here -->
-            </div>
-        </section>
-        <button class="word-of-the-day" aria-label="Word Of The Day">
-            Word Of The Day
-            <img src="/assets/icons/light_bulb.svg" alt="">
-        </button>
-        <button class="games" aria-label="Games">
-            Games
-            <img src="/assets/icons/game.svg" alt="">
-        </button>
-        <button class="favorites" aria-label="Favorites">
-            Saved
-            <img src="/assets/icons/star_on.svg" alt="">
-        </button>
-        <button class="history" aria-label="History">
-            History
-            <img src="/assets/icons/history.svg" alt="">
-        </button>
     </main>
     <footer aria-label="Footer Navigation">
         <hr>

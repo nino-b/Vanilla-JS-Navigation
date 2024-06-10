@@ -30,3 +30,7 @@ body {
 nav ul {
     flex-flow: row wrap;
 }
+
+#home-link-img {
+    width: 1.5rem;
+}
