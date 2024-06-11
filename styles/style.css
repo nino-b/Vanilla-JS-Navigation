@@ -1,0 +1,36 @@
+:root {
+    --light-mode: #f0f4f8;
+    --dark-mode: #1c2e4a;
+    
+    --primary-selection-light: #e1eff6;
+    --secondary-selection-light: #c8e1f3;
+    --accent-selection-light: #007bff;
+
+    --primary-selection-dark: #2a3b5d;
+    --secondary-selection-dark: #34495e;
+    --accent-selection-dark: #49a9ee;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body,
+nav ul {
+    display: flex;
+}
+
+body {
+    background-color: var(--light-mode);
+    flex-flow: column wrap;
+}
+
+nav ul {
+    flex-flow: row wrap;
+}
+
+#home-link-img {
+    width: 1.5rem;
+}

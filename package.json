@@ -3,9 +3,11 @@
   "version": "1.0.0",
   "description": "WordZest app by Nino Burtchuladze",
   "main": "main.js",
+  "type": "module",
   "scripts": {
-    "start": "concurrently \"nodemon proxy-server.mjs\" \"parcel index.html\"",
-    "proxy": "node proxy-server.mjs",
+    "start": "parcel index.html",
+    "start:browser": "cross-env BROWSER_ENV=true parcel build index.html",
+    "start:node": "cross-env NODE_ENV=true parcel build proxyServer.mjs",
     "build": "parcel build index.html",
     "test": "jest"
   },

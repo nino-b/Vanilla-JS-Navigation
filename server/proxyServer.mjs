@@ -74,3 +74,10 @@ app.get('/api/:endpoint/:language/:word', async (req, res) => {
     res.status(500).json({ error: error.message }); // Send error response
   }
 });
+
+/**
+ * Starts the Express server and listens for connections on the specified port.
+ */
+app.listen(port, () => {
+  console.log(`Proxy server is running on http://localhost:${port}`);
+});

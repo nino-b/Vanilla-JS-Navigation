@@ -1,9 +1,16 @@
 
+/**
+ * A class to handle client-side routing in a single-page application.
+ */
 class Router {
   constructor(pageConfig, {main, navItems}) {
     this.pageConfig = pageConfig;
     this.main = main;
     this.navItems = navItems;
+
+    this.setupLinkListeners();
+    this.setupPopStateListener();
+    this.processInitialUrl();
   }
   /**
    * Set up event listeners for navigation links to prevent default behavior and route internally.
@@ -53,6 +60,7 @@ class Router {
   */
  go(route, addToHistory = true) {
   const config = this.pageConfig[route];
+  console.log('config', config)
   if (!config) {
     if (!stateObj) {
       throw new Error(`Invalid route. Unable to create a page. Invalid route or page config does not exist in the .data/pageConfig.js.`);
