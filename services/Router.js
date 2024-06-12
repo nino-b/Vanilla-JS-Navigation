@@ -1,9 +1,13 @@
+import pageConfig from "../data/pageConfig";
+
+import toggleLinkUnderline from "../uiEffects/toggleLinkUnderline";
+import { elementGroups, elements } from "../data/DOMElements";
 
 /**
  * A class to handle client-side routing in a single-page application.
  */
 class Router {
-  constructor(pageConfig, {main, navItems}) {
+  constructor(pageConfig, main, navItems) {
     this.pageConfig = pageConfig;
     this.main = main;
     this.navItems = navItems;
@@ -33,6 +37,7 @@ class Router {
   handleClick(event) {
     event.preventDefault();
     const href = event.target.getAttribute('href');
+    toggleLinkUnderline(elementGroups.navItems, event.target);  /* <------------------------------------------- */
     this.go(href);
   }
   /**
@@ -60,7 +65,6 @@ class Router {
   */
  go(route, addToHistory = true) {
   const config = this.pageConfig[route];
-  console.log('config', config)
   if (!config) {
     if (!stateObj) {
       throw new Error(`Invalid route. Unable to create a page. Invalid route or page config does not exist in the .data/pageConfig.js.`);
@@ -107,3 +111,8 @@ class Router {
   return pageElement;
  }
 }
+
+
+const router = new Router(pageConfig, elements.main, elementGroups.navItems);
+
+export default router;

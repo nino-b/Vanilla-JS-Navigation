@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WordZest</title>
     <link rel="icon" href="/assets/icons/favicon.svg">
-    <link rel="stylesheet" href="reset.css">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/styles/reset.css">
+    <link rel="stylesheet" href="/styles/style.css">
     <script type="module" src="main.js" defer></script>
 </head>
 <body>
@@ -14,10 +14,10 @@
         <nav aria-label="Primary Navigation">
             <ul>
                 <li>
-                    <a href="/" class="nav-item" aria-label="Home">Home</a>
+                    <a href="/" class="nav-item" data-active="true" aria-label="Home">Home</a>
                 </li>
                 <li>
-                    <a href="/translate" class="nav-item" aria-label="Translate">Translate</a>
+                    <a href="/translate" class="nav-item" data-active="false" aria-label="Translate">Translate</a>
                 </li>
                 <li></li>
             </ul>
@@ -30,9 +30,12 @@
         <hr>
         <nav>
             <ul>
-                <li class="home-page" role="button" tabindex="0" aria-label="Home page">Home</li>
-                <li class="About-page" role="button" tabindex="0" aria-label="About Page">About Page</li>
-                <li class="Author-page" role="button" tabindex="0" aria-label="Author">Author</li>
+                <li>
+                    <a href="/" class="nav-item" data-active="false" aria-label="Home">Home</a>
+                </li>
+                <li>
+                    <a href="/about" class="nav-item" data-active="false" aria-label="About">About</a>
+                </li>
             </ul>
         </nav>
     </footer>

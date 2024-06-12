@@ -16,21 +16,67 @@
 *::after {
     box-sizing: border-box;
 }
-
-body,
 nav ul {
     display: flex;
-}
-
-body {
-    background-color: var(--light-mode);
-    flex-flow: column wrap;
-}
-
-nav ul {
     flex-flow: row wrap;
+    justify-content: space-evenly;
 }
 
-#home-link-img {
-    width: 1.5rem;
-}
+
+/* Technique: underline widening effect on hover */
+.nav-item {
+    /* 
+    - Establish the element as a reference point for absoloutely positioned child.
+    - In this case child element is '::after' pseudo element itself.
+     */
+    position: relative;
+    display: inline-block; /* Control over stacking */
+    padding: .6rem 1rem;
+  
+    color: rgba(206, 204, 204, 0.952);
+    font-size: 1.15rem;
+  
+    border-bottom: 2px solid transparent;
+    transition: border-color 0.3s ease, scale 0.3s ease;
+  }
+  /* Sticks border bottom to an active link */
+  a[data-active="true"]::after {
+    width: 100%;
+    left: 0; 
+  }
+  .nav-item::after {
+    /* 
+    - "content: ''; "  is required for the pseudo-element to be generated. 
+    - It specifies what content goes inside the pseudo-element (like a text or an image).
+    */
+    content: '';
+    position: absolute; /* Position the underline */
+    height: 2px; /* Underline thickness */
+    width: 0; /* Initial state for the animation. Allows to create underline growing effect. */
+    left: 50%; /* Initially centering the underline. With 'width: 0;' places underline starting point at the center of the element.*/
+    bottom: 0; /* Set the underline right at the bottom of an element. */
+    background-color: black;
+    transition: width 0.3s ease, left 0.3s ease; /* Animate width and horizontal position */
+  }
+  
+  .nav-item:hover::after {
+    width: 100%; /* Fully expanding the underline */
+    left: 0;
+    /* 
+    'left: 0;' ensures that the growth of the underline appears to speread out symmetrically from the center to the sides.
+  
+    - Initially 'left' is set to '50%', positioning start of the '::after' pseudo-element in the center of the parent, with the width at '0'.
+    - 'left' to '0' shifts the starting position to the left edge of the element.
+    - Combined with 'width: 100%;' creates growth of the underline to the both sides.
+     */
+  }
+  
+  .nav-item:active {
+    transform: scale(1.1);
+  }
+
+
+  /* Footer */
+  footer .nav-item {
+    font-size: 1.05rem;
+  }

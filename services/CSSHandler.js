@@ -11,7 +11,7 @@ export default class CSSHandler {
   static resetCSS = fetchData('./styles/reset.css', false);
   static sharedCSS = fetchData('./styles/sharedStyles.css', false);
 
-    /**
+  /**
    * Creates an instance of CSSHandler.
    * @param {ShadowRoot} root - The root element where the styles will be applied.
    * @param {string} pathToCSSFile - The path to the component-specific CSS file.

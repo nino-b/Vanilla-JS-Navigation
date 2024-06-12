@@ -10,6 +10,7 @@
  */
 async function fetchData(url, parseAsJSON = true) {
   try {
+    console.log('startef')
     const response = await fetch(url);
     if (!response.ok) {
       throw new Error(`Error: ${response.status}`);
