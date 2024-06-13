@@ -14,10 +14,6 @@ export default class BaseComponent extends HTMLElement{
     * @type {string | null} - An ID of HTML template tag, which contains template for specific page.
     */
     this.templateID = null;
-    /** 
-    * @type {string | null} - The name of an event that will fire up specific page display actions.
-    */
-    this.eventName = null;
   }
   /** 
   * In each instance, it will be enhanced with specific functionalities.
@@ -25,8 +21,8 @@ export default class BaseComponent extends HTMLElement{
   render() {
     console.log('Base Component Rendered.');
   }
-  connectedCallback() {
-    const setUpCSS = new CSSHandler();
+  pageSetup() {
+    const setUpCSS = new CSSHandler(this.root, this.pathToCSSFile);
     setUpTemplate(this.root, this.templateID);
   }
 }

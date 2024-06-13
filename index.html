@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WordZest</title>
+    <title>Lexi Wizard</title>
     <link rel="icon" href="/assets/icons/favicon.svg">
     <link rel="stylesheet" href="/styles/reset.css">
     <link rel="stylesheet" href="/styles/style.css">
@@ -44,7 +44,22 @@
     <!-- -------------------------------------------------- -->
 
     <template id="home-page-template">
-        <div id="home-page-container"></div>
+        <div id="home-page-container">
+            <section id="english-level-section">
+                <label for="english-level">English Level</label>
+                <select id="english-level" name="english-level">
+                    <option value="" selected></option>
+                    <option value="A1">A1 (Beginner)</option>
+                    <option value="A2">A2 (Elementary)</option>
+                    <option value="B1">B1 (Intermediate)</option>
+                    <option value="B2">B2 (Upper Intermediate)</option>
+                    <option value="C1">C1 (Advanced)</option>
+                    <option value="C2">C2 (Proficient)</option>
+                </select>
+            </section>
+            <section id="translate-section"></section>
+            <div id="other-features-section"></div>
+        </div>
     </template>
 
     <template id="translate-page-template"></template>

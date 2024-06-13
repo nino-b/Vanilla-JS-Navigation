@@ -1,4 +1,5 @@
-import { fetchData } from "../utils/asyncUtils.js";
+import { fetchData } from "../utils/asyncUtils";
+
 
 /**
  * Class responsible for handling the fetching and application of CSS styles.
@@ -8,8 +9,12 @@ export default class CSSHandler {
   /**
    * Fetched reset and shared CSS styles' files.
    */
-  static resetCSS = fetchData('./styles/reset.css', false);
-  static sharedCSS = fetchData('./styles/sharedStyles.css', false);
+  static async resetCSS() {
+    return import('../styles/reset.css').then(module => module.default);
+  }
+  static async sharedCSS() {
+    return import('../styles/sharedStyles.css').then(module => module.default);
+  }
 
   /**
    * Creates an instance of CSSHandler.
@@ -33,13 +38,19 @@ export default class CSSHandler {
   */
   async setupCSS() {
     try {
-      const pageCSS = fetchData(this.pathToCSSFile, false);
+      console.log('Fetching CSS from:', this.pathToCSSFile);
+      const pageCSS = await import('../styles/homePage.css').then(module => module.default);
+      console.log('Fetched CSS content:', pageCSS);
 
+      const resetCSS = await CSSHandler.resetCSS();
+      const sharedCSS = await CSSHandler.sharedCSS();
       const styles = document.createElement('style');
-      styles.textContent = `${CSSHandler.resetCSS}\n${CSSHandler.sharedCSS}\n${pageCSS}`;
-      
-      this.root.appendChild(styles);
+      styles.textContent = `${resetCSS}\n${sharedCSS}\n${pageCSS}`;
 
+      console.log('Final CSS:', styles.textContent);
+
+      this.root.appendChild(styles);
+      console.log('Styles appended to shadow root');
     } catch (error) {
       console.error('Failed to fetch CSS files and apply styles:', error);
     }

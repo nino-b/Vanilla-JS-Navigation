@@ -66,16 +66,14 @@ class Router {
  go(route, addToHistory = true) {
   const config = this.pageConfig[route];
   if (!config) {
-    if (!stateObj) {
-      throw new Error(`Invalid route. Unable to create a page. Invalid route or page config does not exist in the .data/pageConfig.js.`);
-    }
-
-    if (addToHistory) {
-      this.updateHistory(config);
-    }
-    const pageElement = this.createPageElement(config);
-    this.updatePageContent(pageElement);
+    throw new Error(`Invalid route. Unable to create a page. Invalid route or page config does not exist in the .data/pageConfig.js.`);
   }
+
+  if (addToHistory) {
+    this.updateHistory(config);
+  }
+  const pageElement = this.createPageElement(config);
+  this.updatePageContent(pageElement);
  }
   /**
   * Updates the browser's history with the given route.
@@ -92,7 +90,7 @@ class Router {
   */
  updatePageContent(pageElement) {
   if (pageElement) {
-    this.main.innerHtML = '';
+    this.main.innerHTML = '';
     this.main.appendChild(pageElement);
     window.scroll(0, 0);
   } else {
@@ -111,7 +109,6 @@ class Router {
   return pageElement;
  }
 }
-
 
 const router = new Router(pageConfig, elements.main, elementGroups.navItems);
 
