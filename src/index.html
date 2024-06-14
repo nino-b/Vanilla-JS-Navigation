@@ -57,8 +57,45 @@
                     <option value="C2">C2 (Proficient)</option>
                 </select>
             </section>
-            <section id="translate-section"></section>
-            <div id="other-features-section"></div>
+            <section id="translate-section">
+                <form id="translate-form">
+                    <div id="language-options">
+                        <label for="translate-from"><img src="/assets/icons/drop_down.svg" ></label>
+                        <select id="translate-from" name="translate-from"></select>
+                        
+                        <button id="switch"><img src="/assets/icons/arrows.svg"></button>
+
+                        <label for="translate-to"><img src="/assets/icons/drop_down.svg" ></label>
+                        <select id="translate-to" name="translate-to"></select>
+                    </div>
+                    <input type="text" id="word-to-translate" name="word-to-translate" placeholder="Search a word ⌕" >
+                    <button id="voice-translation">
+                        <img src="/assets/icons/speak_off.svg">
+                        <img src="/assets/icons/speak_on.svg" hidden>
+                    </button>
+                </form>
+            </section>
+            <div id="main-page-nav">
+                <nav>
+                    <ul>
+                        <li>
+                            <a class="main-page-nav-item" href="/games">Games <img src="/assets/icons/game.svg" ></a>
+                        </li>
+                        <li>
+                            <a class="main-page-nav-item" href="/vocabulary">Vocabulary <img src="/assets/icons/vocabulary.svg" ></a>
+                        </li>
+                        <li>
+                            <a class="main-page-nav-item" href="/saved">Saved <img src="/assets/icons/star_on.svg"></a>
+                        </li>
+                        <li>
+                            <a class="main-page-nav-item" href="/grammar">Grammar <img src="/assets/icons/grammar.svg" ></a>
+                        </li>
+                        <li>
+                            <a class="main-page-nav-item" href="/search-history">History <img src="/assets/icons/history.svg" ></a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
         </div>
     </template>
 

@@ -2,7 +2,9 @@ import BaseComponent from "./BaseComponent";
 /**
  * Adds CSS to a newly created page.
  */
-import homePageCSS from '../styles/homePage.css';
+import homePageCSS from 'bundle-text:../styles/homePage.css';
+
+
 /**
  * Creates a <home-page> Custom HTML Element.
  */
@@ -13,6 +15,7 @@ export default class HomePage extends BaseComponent {
     * @type {string | null} - An ID of HTML template tag, which contains template for specific page.
     */
     this.templateID = 'home-page-template';
+    this.pageStyles = homePageCSS;
   }
 }
 

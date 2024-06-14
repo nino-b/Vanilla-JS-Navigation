@@ -1,4 +1,7 @@
-* {
+img {
+  width: 1rem;
+  height: 1rem;
+}
+.main-page-nav-item {
   color: red;
-  font-size: 10rem;
 }
