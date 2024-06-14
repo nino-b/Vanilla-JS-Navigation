@@ -1,15 +1,16 @@
-import { setUpTemplate, toggleEventListener } from "../utils/logicUtils.js";
-import CSSHandler from "../services/CSSHandler.js";
+import { setUpTemplate } from "../utils/logicUtils.js";
 
-export default class BaseComponent extends HTMLElement{
+/**
+ * Contains common features for all components. 
+ * Other components will extend from it.
+ */
+export default class BaseComponent extends HTMLElement {
   constructor() {
     super();
-
+    /**
+     * Sets up a shadow DOM, with mode: open (elements outside Shadow DOM can interact with it).
+     */
     this.root = this.attachShadow({mode: 'open'});
-    /** 
-    * @type {string | null} - A string that contains path to the CSS file.
-    */
-    this.pathToCSSFile = null;
     /** 
     * @type {string | null} - An ID of HTML template tag, which contains template for specific page.
     */
@@ -21,8 +22,11 @@ export default class BaseComponent extends HTMLElement{
   render() {
     console.log('Base Component Rendered.');
   }
-  pageSetup() {
-    const setUpCSS = new CSSHandler(this.root, this.pathToCSSFile);
+  /**
+   * A callback function for a HTML Custom Element that will be executed when the element is rendered.
+   */
+  connectedCallback() {
     setUpTemplate(this.root, this.templateID);
+    this.render();
   }
 }

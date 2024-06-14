@@ -1,16 +1,28 @@
 import BaseComponent from "./BaseComponent";
-import { fetchData } from "../utils/asyncUtils";
-
+/**
+ * Adds CSS to a newly created page.
+ */
+import homePageCSS from '../styles/homePage.css';
+/**
+ * Creates a <home-page> Custom HTML Element.
+ */
 export default class HomePage extends BaseComponent {
   constructor() {
     super();
-    this.pathToCSSFile = '../styles/homePage.css';
+    /** 
+    * @type {string | null} - An ID of HTML template tag, which contains template for specific page.
+    */
     this.templateID = 'home-page-template';
-    this.eventName = 'homechange'
-  }
-  connectedCallback() {
-    super.pageSetup();
   }
 }
 
+/**
+ * Defines a custom element.
+ * 
+ * 'customElements' is a method provided by Web Components API 
+ * that allows to create a Custom HTML Element.
+ * 
+ * Custom Element's name should always be written with hyphen (-), 
+ * this ensures that there won't be any future inconsistencies.
+ */
 customElements.define('home-page', HomePage);

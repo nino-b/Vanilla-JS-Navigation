@@ -31,13 +31,15 @@ class Router {
     });
   }
   /**
-   * Event handler for link clicks to prevent page reload and navigate internally.
+   * Handles click events for links to prevent page reload and navigate internally.
+   * And adds underline to the active link.
+   * 
    * @param {Event} event - The click event from the navigation link.
   */
   handleClick(event) {
     event.preventDefault();
     const href = event.target.getAttribute('href');
-    toggleLinkUnderline(elementGroups.navItems, event.target);  /* <------------------------------------------- */
+    toggleLinkUnderline(elementGroups.navItems, event.target);
     this.go(href);
   }
   /**
