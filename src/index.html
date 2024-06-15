@@ -19,22 +19,60 @@
                 <li>
                     <a href="/translate" class="nav-item" data-active="false" aria-label="Translate">Translate</a>
                 </li>
-                <li></li>
+                <li>
+                    <a href="/games" class="nav-item" data-active="false" aria-label="Home">Games</a>
+                </li>
+                <li>
+                    <a href="/vocabulary" class="nav-item" data-active="false" aria-label="Home">Vocabulary</a>
+                </li>
+                <li>
+                    <a href="/grammar" class="nav-item" data-active="false" aria-label="Home">Grammar</a>
+                </li>
+                <li>
+                    <a href="/saved" class="nav-item" data-active="false" aria-label="Home">Saved</a>
+                </li>
+                <li>
+                    <a href="/search-history" class="nav-item" data-active="false" aria-label="Home">Search History</a>
+                </li>
+                <li>
+                    <a href="/settings" class="nav-item" data-active="false" aria-label="Home">Settings</a>
+                </li>
             </ul>
         </nav>
-        <hr>
+        <hr id="header-nav-border">
     </header>
     <main>
     </main>
     <footer aria-label="Footer Navigation">
-        <hr>
+        <hr id="footer-nav-border">
         <nav>
             <ul>
                 <li>
-                    <a href="/" class="nav-item" data-active="false" aria-label="Home">Home</a>
+                    <a href="/" class="nav-item" data-active="true" aria-label="Home">Home</a>
                 </li>
                 <li>
-                    <a href="/about" class="nav-item" data-active="false" aria-label="About">About</a>
+                    <a href="/translate" class="nav-item" data-active="false" aria-label="Translate">Translate</a>
+                </li>
+                <li>
+                    <a href="/games" class="nav-item" data-active="false" aria-label="Home">Games</a>
+                </li>
+                <li>
+                    <a href="/vocabulary" class="nav-item" data-active="false" aria-label="Home">Vocabulary</a>
+                </li>
+                <li>
+                    <a href="/grammar" class="nav-item" data-active="false" aria-label="Home">Grammar</a>
+                </li>
+                <li>
+                    <a href="/saved" class="nav-item" data-active="false" aria-label="Home">Saved</a>
+                </li>
+                <li>
+                    <a href="/search-history" class="nav-item" data-active="false" aria-label="Home">Search History</a>
+                </li>                
+                <li>
+                    <a href="/about" class="nav-item" data-active="false" aria-label="Home">About</a>
+                </li>
+                <li>
+                    <a href="/settings" class="nav-item" data-active="false" aria-label="Home">Settings</a>
                 </li>
             </ul>
         </nav>
@@ -46,9 +84,8 @@
     <template id="home-page-template">
         <div id="home-page-container">
             <section id="english-level-section">
-                <label for="english-level">English Level</label>
                 <select id="english-level" name="english-level">
-                    <option value="" selected></option>
+                    <option value="Any" selected>Any</option>
                     <option value="A1">A1 (Beginner)</option>
                     <option value="A2">A2 (Elementary)</option>
                     <option value="B1">B1 (Intermediate)</option>
@@ -56,46 +93,59 @@
                     <option value="C1">C1 (Advanced)</option>
                     <option value="C2">C2 (Proficient)</option>
                 </select>
+                <label for="english-level">English Level</label>
             </section>
-            <section id="translate-section">
-                <form id="translate-form">
-                    <div id="language-options">
-                        <label for="translate-from"><img src="/assets/icons/drop_down.svg" ></label>
-                        <select id="translate-from" name="translate-from"></select>
-                        
-                        <button id="switch"><img src="/assets/icons/arrows.svg"></button>
 
-                        <label for="translate-to"><img src="/assets/icons/drop_down.svg" ></label>
-                        <select id="translate-to" name="translate-to"></select>
-                    </div>
-                    <input type="text" id="word-to-translate" name="word-to-translate" placeholder="Search a word ⌕" >
+
+            <section id="translate-section">
+                <h3>English - English Dictionary</h3>
+                <form id="translate-form">
+                    <input type="text" id="translate-input" name="translate-input" placeholder="Search a word ⌕" >
+
                     <button id="voice-translation">
                         <img src="/assets/icons/speak_off.svg">
                         <img src="/assets/icons/speak_on.svg" hidden>
                     </button>
                 </form>
             </section>
-            <div id="main-page-nav">
-                <nav>
-                    <ul>
-                        <li>
-                            <a class="main-page-nav-item" href="/games">Games <img src="/assets/icons/game.svg" ></a>
-                        </li>
-                        <li>
-                            <a class="main-page-nav-item" href="/vocabulary">Vocabulary <img src="/assets/icons/vocabulary.svg" ></a>
-                        </li>
-                        <li>
-                            <a class="main-page-nav-item" href="/saved">Saved <img src="/assets/icons/star_on.svg"></a>
-                        </li>
-                        <li>
-                            <a class="main-page-nav-item" href="/grammar">Grammar <img src="/assets/icons/grammar.svg" ></a>
-                        </li>
-                        <li>
-                            <a class="main-page-nav-item" href="/search-history">History <img src="/assets/icons/history.svg" ></a>
-                        </li>
-                    </ul>
-                </nav>
-            </div>
+
+
+            <nav id="main-page-carousel">
+                <ul>
+                    <li id="home-game-link" >
+                        <a class="carousel-nav-item" href="/games">Games <img src="/assets/icons/game.svg" ></a>
+                    </li>
+                    <li id="home-vocabulary-link">
+                        <a class="carousel-nav-item" href="/vocabulary">Vocabulary <img src="/assets/icons/vocabulary.svg" ></a>
+                    </li>
+                    <li id="home-grammar-link">
+                        <a class="carousel-nav-item" href="/grammar">Grammar <img src="/assets/icons/grammar.svg" ></a>
+                    </li>
+                    <li id="home-saved-link">
+                        <a class="carousel-nav-item" href="/saved">Saved <img src="/assets/icons/star_on.svg"></a>
+                    </li>
+                    <li id="home-search-history-link" >
+                        <a class="carousel-nav-item" href="/search-history">History <img src="/assets/icons/history.svg" ></a>
+                    </li>
+                </ul>
+                <ul>
+                    <li id="home-game-link" >
+                        <a class="carousel-nav-item" href="/games">Games <img src="/assets/icons/game.svg" ></a>
+                    </li>
+                    <li id="home-vocabulary-link">
+                        <a class="carousel-nav-item" href="/vocabulary">Vocabulary <img src="/assets/icons/vocabulary.svg" ></a>
+                    </li>
+                    <li id="home-grammar-link">
+                        <a class="carousel-nav-item" href="/grammar">Grammar <img src="/assets/icons/grammar.svg" ></a>
+                    </li>
+                    <li id="home-saved-link">
+                        <a class="carousel-nav-item" href="/saved">Saved <img src="/assets/icons/star_on.svg"></a>
+                    </li>
+                    <li id="home-search-history-link" >
+                        <a class="carousel-nav-item" href="/search-history">History <img src="/assets/icons/history.svg" ></a>
+                    </li>
+                </ul>
+            </nav>
         </div>
     </template>
 

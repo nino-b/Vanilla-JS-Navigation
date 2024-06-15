@@ -16,3 +16,18 @@
 *::after {
   box-sizing: border-box;
 }
+
+* {
+  border: 1px solid transparent;
+  border-radius: var(--border-radius);
+  color: var(--text);
+}
+
+select,
+input,
+button {
+  padding: var(--common-padding);
+}
+button {
+  cursor: pointer;
+}

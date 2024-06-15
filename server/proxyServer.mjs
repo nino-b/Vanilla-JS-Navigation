@@ -75,6 +75,30 @@ app.get('/api/:endpoint/:language/:word', async (req, res) => {
   }
 });
 
+app.get('/api/languages', async (req, res) => {
+  const url = 'https://od-api.oxforddictionaries.com/api/v2/languages';
+
+  const options = {
+    method: 'GET',
+    headers: {
+      app_id: ODAppId,
+      app_key: ODAppKey,
+      Accept: 'application/json'
+    }
+  };
+  try {
+    const response = await fetch(url, options);
+
+    if (!response.ok) {
+      throw new Error(`Error: ${response.status}`);
+    }
+    const data = await response.json();
+    res.json(data); // Send the data back to the client
+  } catch (error) {
+    res.status(500).json({ error: error.message }); // Send error response
+  }
+})
+
 /**
  * Starts the Express server and listens for connections on the specified port.
  */

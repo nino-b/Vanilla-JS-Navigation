@@ -1,7 +1,198 @@
+:root {
+  --nav-border: #10273f;
+  --theme-system: #0c2036;
+  --nav-text: #abc1d0;
+  --text: #ffffff;
+
+  --primary-light: #dae5fc;
+  --primary-dark: #9dbff9;
+
+  --secondary-light: #2c5270;
+  --secondary-dark: #1b354b;
+
+  --light-bg-image: linear-gradient(45deg, var(--primary-light), var(--primary-dark));
+  --dark-bg-image: linear-gradient(45deg, var(--secondary-light), var(--secondary-dark));
+
+  --border-radius: .4rem;
+}
+
+/* General Styles */
+
 img {
-  width: 1rem;
   height: 1rem;
 }
-.main-page-nav-item {
-  color: red;
+
+.carousel-nav-item,
+#translate-input {
+  color: var(--secondary-dark);
 }
+
+#main-page-carousel,
+#main-page-carousel ul,
+#translate-section h3,
+#translate-input,
+#voice-translation {
+  width: 100%;
+}
+
+/* English Level Selection */
+
+#english-level {
+  background: var(--primary-light);
+  color: var(--theme-system);
+}
+label[for="english-level"] {
+  margin-left: .5rem;
+  color: var(--text);
+}
+
+/* Dictionary on Home page */
+
+#home-page-container {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: repeat(8, 1fr);
+  height: 100%;
+}
+
+/* english-level-section */
+#english-level-section {
+  grid-row: 1;
+  grid-column: 1 / span 3;
+}
+/* Translate Form Section */
+#translate-section {
+  grid-row: 2 / span 3;
+  grid-column: 4 / span 7;
+}
+#translate-section h3 {
+  margin: 1rem auto;
+  padding: 1rem;
+  text-align: center;
+  background-color: var(--secondary-light);
+  font-size: 1.5rem;
+}
+/* Form */
+#translate-form {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  grid-template-rows: 1fr;
+}
+#translate-input,
+#voice-translation {
+  border: 1px solid transparent;
+  border-radius: .7rem;
+}
+#translate-input {
+  grid-column: 1 / span 10;
+  grid-row: 1;
+  height: 6rem;
+  padding: 2rem;
+  font-size: 1.3rem;
+}
+#voice-translation {
+  grid-column: 10;
+  grid-row: 1;
+  padding: 1rem;
+  background-color: transparent;
+
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+}
+#voice-translation img {
+  grid-row: 1;
+  grid-column: 1;
+  margin: auto;
+  height: 1.5rem;
+}
+
+/* Moving Carousel for main page nav */
+
+#main-page-carousel {
+  grid-row: 5 / span 3;
+  grid-column: 3 / span 9;
+  margin: 2rem 0;
+  text-align: center;
+  white-space: noWrap;
+}
+#main-page-carousel ul {
+  display: inline-block; 
+}
+
+#main-page-carousel li {
+  display: inline-block;  
+  width: 10rem;
+  height: 10rem;
+  margin-right: 3rem;
+
+  text-align: center;
+  align-content: center;
+  background-image: var(--light-bg-image);
+  box-shadow: 0 0 .8rem #9dbff9d8;
+}
+
+#main-page-carousel a {
+  width: 100%;
+  font-size: 1.2rem;
+  text-align: center;
+  align-content: center;
+}
+
+/* Create a Moving Carousel for main page nav */
+
+#main-page-carousel {
+  overflow: hidden;
+}
+
+#main-page-carousel ul {
+/*   display: inline-block; */
+ /*  animation: 10s slide infinite linear; */
+}
+
+@keyframes slide {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+
+
+/* 
+logos: main-page-carousel
+logos-slide: main-page-carousel ul
+*/
+
+
+
+/* Container:
+home-page-container
+
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(9, 1fr);
+*/
+
+/* sections:
+english-level-section
+translate-section
+    translate-form
+main-page-carousel nav ul
+*/
+
+/* Details:
+translate-section h3
+translate-form
+translate-input
+voice-translation
+
+main-page-carousel
+
+home-game-link
+home-vocabulary-link
+home-saved-link
+home-grammar-link
+home-search-history-link
+*/

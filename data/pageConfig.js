@@ -12,6 +12,34 @@ const pageConfig = {
     route: "/translate",
     customDOMEl: "translate-page",
   },
+  "/games": {
+    route: "/games",
+    customDOMEl: "games-page",
+  },
+  "/vocabulary": {
+    route: "/vocabulary",
+    customDOMEl: "vocabulary-page",
+  },
+  "/grammar": {
+    route: "/grammar",
+    customDOMEl: "grammar-page",
+  },
+  "/saved": {
+    route: "/saved",
+    customDOMEl: "saved-page",
+  },
+  "/search-history": {
+    route: "/search-history",
+    customDOMEl: "search-history-page",
+  },
+  "/about": {
+    route: "/about",
+    customDOMEl: "about-page",
+  },
+  "/settings": {
+    route: "/settings",
+    customDOMEl: "settings-page",
+  },
 };
 
 

@@ -9,15 +9,52 @@
     --primary-selection-dark: #2a3b5d;
     --secondary-selection-dark: #34495e;
     --accent-selection-dark: #49a9ee;
+    /* ****************************************** */
+
+    --nav-border: #10273f;
+    --theme-system: #0c2036;
+    --nav-text: #abc1d0;
+    --text: #ffffff;
+
+    --primary-light: #dae5fc;
+    --primary-dark: #9dbff9;
+
+    --secondary-light: #2c5270;
+    --secondary-dark: #1b354b;
+
+    --light-bg-image: linear-gradient(45deg, var(--primary-light), var(--primary-dark));
+    --dark-bg-image: linear-gradient(45deg, var(--secondary-light), var(--secondary-dark));
+
+    --border-radius: .4rem;
+    --common-padding: .5rem .8rem;
 }
 
+body {
+  max-width: 100rem;
+  margin: auto;
+  display: flex;
+  flex-flow: column;
+  justify-content: space-between;
+  height: 100vh;
+}
+
+main {
+  height: 100%;
+  width: 100%;
+  padding: 1.5rem 2rem;
+}
 
 nav ul {
     display: flex;
     flex-flow: row wrap;
     justify-content: space-evenly;
 }
-
+header nav {
+  padding: .6rem 1rem;
+}
+footer nav {
+  padding-bottom: .2rem;
+}
 
 /* Technique: underline widening effect on hover */
 .nav-item {
@@ -34,49 +71,67 @@ nav ul {
   
     border-bottom: 2px solid transparent;
     transition: border-color 0.3s ease, scale 0.3s ease;
-  }
-  /* Sticks border bottom to an active link */
-  a[data-active="true"]::after {
-    width: 100%;
-    left: 0; 
-  }
-  .nav-item::after {
-    /* 
-    - "content: ''; "  is required for the pseudo-element to be generated. 
-    - It specifies what content goes inside the pseudo-element (like a text or an image).
-    */
-    content: '';
-    position: absolute; /* Position the underline */
-    height: 2px; /* Underline thickness */
-    width: 0; /* Initial state for the animation. Allows to create underline growing effect. */
-    left: 50%; /* Initially centering the underline. With 'width: 0;' places underline starting point at the center of the element.*/
-    bottom: 0; /* Set the underline right at the bottom of an element. */
-    background-color: black;
-    transition: width 0.3s ease, left 0.3s ease; /* Animate width and horizontal position */
-  }
-  
-  .nav-item:hover::after {
-    width: 100%; /* Fully expanding the underline */
-    left: 0;
-    /* 
-    'left: 0;' ensures that the growth of the underline appears to speread out symmetrically from the center to the sides.
-  
-    - Initially 'left' is set to '50%', positioning start of the '::after' pseudo-element in the center of the parent, with the width at '0'.
-    - 'left' to '0' shifts the starting position to the left edge of the element.
-    - Combined with 'width: 100%;' creates growth of the underline to the both sides.
-     */
-  }
-  
-  .nav-item:active {
-    transform: scale(1.1);
-  }
+}
+/* Sticks border bottom to an active link */
+a[data-active="true"]::after {
+  width: 100%;
+  left: 0; 
+}
+.nav-item::after {
+  /* 
+  - "content: ''; "  is required for the pseudo-element to be generated. 
+  - It specifies what content goes inside the pseudo-element (like a text or an image).
+  */
+  content: '';
+  position: absolute; /* Position the underline */
+  height: 2px; /* Underline thickness */
+  width: 0; /* Initial state for the animation. Allows to create underline growing effect. */
+  left: 50%; /* Initially centering the underline. With 'width: 0;' places underline starting point at the center of the element.*/
+  bottom: 0; /* Set the underline right at the bottom of an element. */
+  background-color: black;
+  transition: width 0.3s ease, left 0.3s ease; /* Animate width and horizontal position */
+}
 
+.nav-item:hover::after {
+  width: 100%; /* Fully expanding the underline */
+  left: 0;
+  /* 
+  'left: 0;' ensures that the growth of the underline appears to speread out symmetrically from the center to the sides.
 
-  /* main */
-  
+  - Initially 'left' is set to '50%', positioning start of the '::after' pseudo-element in the center of the parent, with the width at '0'.
+  - 'left' to '0' shifts the starting position to the left edge of the element.
+  - Combined with 'width: 100%;' creates growth of the underline to the both sides.
+   */
+}
+/* ********************************************* */
 
+.nav-item:active {
+  transform: scale(1.1);
+}
+/* footer */
+footer .nav-item {
+  font-size: .9rem;
+}
 
-  /* footer */
-  footer .nav-item {
-    font-size: 1.05rem;
-  }
+/* Theme specific styles */
+body {
+  background-color: var(--theme-system);
+}
+.nav-item {
+  color: var(--nav-text);
+}
+.nav-item::after {
+  background-color: var(--nav-text);
+}
+
+#header-nav-border,
+#footer-nav-border {
+  border-color: var(--nav-border);
+}
+
+#header-nav-border {
+  box-shadow: 0 .3rem .5rem var(--secondary-dark);
+}
+#footer-nav-border {
+  box-shadow: 0 -.3rem .5rem var(--secondary-dark);
+}
