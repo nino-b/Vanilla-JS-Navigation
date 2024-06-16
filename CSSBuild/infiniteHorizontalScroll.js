@@ -1,0 +1,22 @@
+
+// const scrollers = document.querySelectorAll('.scroller');
+
+/**
+ * exports a function so that parser will look into this file and execute the if statement
+ */
+ export default function addScrollAnimation(scrollerList) {
+  console.log('scrollerList', scrollerList);
+  scrollerList.forEach(scroller => {
+    //scroller.setAttribute('data-animated', true);
+
+    const scrollerInner = scroller.querySelector('.scroller-inner');
+    const scrollerContent = Array.from(scrollerInner.children);
+
+    scrollerContent.forEach(item => {
+      const duplicatedItem = item.cloneNode(true);
+      duplicatedItem.setAttribute('aria-hidden', true);
+      scrollerInner.appendChild(duplicatedItem);
+    });
+    console.log('done');
+  });
+}
