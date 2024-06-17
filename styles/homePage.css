@@ -26,10 +26,10 @@
       #voice-translation
         #voice-translation img
 
-  #home-page-carousel .scroller
+  #home-page-scroller .scroller
     .scroller-inner
       .scroller-inner li
-        .carousel-nav-item
+        .scroller-nav-item
 
 
 */
@@ -40,25 +40,40 @@ img {
   height: 1rem;
 }
 
+* {
+  color: var(--secondary-dark);
+}
+
+label[for="english-level"],
+#translate-section h3 {
+  color: var(--text);
+}
 /* <main> layout */
 
 #home-page-container {
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  grid-template-rows: repeat(12, 1fr);
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
 }
 
 #english-level-section {
-  grid-column: 1 / span 6;
-  grid-row: 1;
+  display: block;
+  width: 100%;
+}
+#english-level {
+  background-color: var(--primary-light);
+}
+label[for="english-level"] {
+  margin-left: 1rem;
 }
 
 #translate-section {
-  grid-column: 5 / span 5;
-  grid-row: 3 / span 5;
-
   display: flex;
   flex-flow: column nowrap;
+
+  width: 50%;
+  margin-top: 3rem;
 }
 
 #translate-section h3 {
@@ -103,110 +118,45 @@ img {
   align-self: center;
 }
 
-#home-page-carousel {
-  grid-column: 4 / span 7;
-  grid-row: 9 / span 4;
+#home-page-scroller {
+  margin-top: 5%;
+}
+#home-page-scroller[data-animated="true"] {
+  width: 70%;
+}
+#home-page-scroller[data-animated="false"] {
+  width: 100%;
+}
+#home-page-scroller[data-animated="false"] .scroller-inner {
+  width: 100%;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
 }
 
 .scroller-inner li {
+  margin: 1rem;
+  width: 12rem;
+  height: 6rem;
+
   background-image: var(--light-bg-image);
-  padding: 2rem 4rem;
+  font-size: 1.3rem;
+  font-weight: bold;
+
+  transition: transform .13s ease;
 }
-
-
-
-/* Create a Moving Carousel for main page nav */
-
-/*  */
-
-.scroller[data-animated="true"] {
-  overflow: hidden;
-  -webkit-mask: linear-gradient(
-                                90deg, 
-                                transparent, 
-                                white 20%, 
-                                white 80%,
-                                transparent );
-  mask: linear-gradient(
-                         90deg, 
-                         transparent, 
-                         white 20%, 
-                         white 80%,
-                         transparent );
+.scroller-inner li:hover {
+  transform: scale(1.05);
 }
-/**
- * var(--_animation-duration, 40s)
- if '-_animation-duration' is not declared, it defaults to '40s'
- */
-.scroller[data-animated="true"] .scroller-inner {
-  flex-wrap: nowrap;
-  width: fit-content;
-  animation: scroll 10s linear infinite;
+.scroller-inner li:active {
+  transform: scale(1.1);
 }
-/* .scroller[data-direction="right"] {
-  --animation-direction: reverse;
-} *//* not needed */
+.scroller-nav-item {
+  display: inline-block;
+  width: 100%;
+  height: 100%;
 
-.scroller-inner {
-  padding-block: 1rem;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
+  align-content: center;
+  text-align: center;
 }
-
-@keyframes scroll {
-  to {
-    transform: translate(calc(-50% - 0.5rem));
-  }
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* 
-logos: main-page-carousel
-logos-slide: main-page-carousel ul
-*/
-
-
-
-/* Container:
-home-page-container
-
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: repeat(9, 1fr);
-*/
-
-/* sections:
-english-level-section
-translate-section
-    translate-form
-main-page-carousel nav ul
-*/
-
-/* Details:
-translate-section h3
-translate-form
-translate-input
-voice-translation
-
-main-page-carousel
-
-home-game-link
-home-vocabulary-link
-home-saved-link
-home-grammar-link
-home-search-history-link
-*/

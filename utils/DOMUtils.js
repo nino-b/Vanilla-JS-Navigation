@@ -24,4 +24,17 @@ function queryElement(identifier, context = document) {
 }
 
 
-export { queryElementGroup, queryElement };
+/**
+ * Removes an event listener from elements in the array.
+ * 
+ * @param {Array} elements - A list of elements, event listeners to be removed from.
+ */
+function removeListeners(elements) {
+  elements.forEach(element => {
+    element.removeEventListener();
+  });
+}
+
+export { queryElementGroup, queryElement,
+         removeListeners
+ };

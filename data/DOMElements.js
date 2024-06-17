@@ -11,6 +11,9 @@ import { queryElementGroup, queryElement } from "../utils/DOMUtils"
  */
 const elementGroups = {
   navItems: queryElementGroup('.nav-item'),
+  headerNavItems: queryElementGroup('header .nav-item'),
+  footerNavItems: queryElementGroup('footer .nav-item'),
+  homePageNavItems: null,
 }
 
 const elements = {

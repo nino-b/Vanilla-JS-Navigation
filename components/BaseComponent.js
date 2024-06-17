@@ -23,6 +23,10 @@ export default class BaseComponent extends HTMLElement {
     * @type {string | null} - A string that contains page specific styles.
     */
     this.pageStyles = null;
+    /**
+     * @type {Array | null} - List of scroller elements (elements with a class 'scroller') on a page.
+     */
+    this.scrollers = null;
   }
   /** 
   * In each instance, it will be enhanced with specific functionalities.

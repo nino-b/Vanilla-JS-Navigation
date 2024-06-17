@@ -37,3 +37,40 @@ button:hover {
 button:active {
   scale: 1.1;
 }
+
+
+/* Create a Moving Carousel for main page nav */
+
+.scroller[data-animated="true"] {
+  overflow: hidden;
+  -webkit-mask: linear-gradient(
+                                90deg, 
+                                transparent, 
+                                white 20%, 
+                                white 80%,
+                                transparent );
+  mask: linear-gradient(
+                         90deg, 
+                         transparent, 
+                         white 20%, 
+                         white 80%,
+                         transparent );
+}
+
+.scroller[data-animated="true"] .scroller-inner {
+  display: flex;
+  flex-wrap: nowrap;
+  width: fit-content;
+  padding-block: 1rem;
+  animation: scroll 40s linear infinite;
+}
+
+.scroller[data-animated="true"] .scroller-inner:hover {
+  animation-play-state: paused;
+}
+
+@keyframes scroll {
+  to {
+    transform: translate(calc(-50% - 0.5rem));
+  }
+}

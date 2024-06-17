@@ -25,8 +25,8 @@ class Router {
    * In JavaScript, event handlers are called with 'this' set to the element that triggered the event. 
    * By using bind(this), we explicitly set the this context of the handleClick method to the instance of the Router class.
   */
-  setupLinkListeners() {
-    this.navItems.forEach(a => {
+  setupLinkListeners(links = this.navItems) {
+    links.forEach(a => {
       a.addEventListener('click', this.handleClick.bind(this));
     });
   }
@@ -39,7 +39,8 @@ class Router {
   handleClick(event) {
     event.preventDefault();
     const href = event.target.getAttribute('href');
-    toggleLinkUnderline(elementGroups.navItems, event.target);
+    console.log('footerNav: ', elementGroups.footerNavItems);
+    toggleLinkUnderline(elementGroups.headerNavItems, href, event.target, elementGroups.footerNavItems);
     this.go(href);
   }
   /**
@@ -52,9 +53,11 @@ class Router {
  }
   /**
    * Process the initial URL to handle direct link access without reloading.
+   * Adds underline to an active link.
   */
  processInitialUrl() {
   this.go(location.pathname);
+  toggleLinkUnderline(elementGroups.headerNavItems, location.pathname);
  }
   /**
   * Processes the URL, 

@@ -1,10 +1,12 @@
 import BaseComponent from "./BaseComponent";
-import addScrollAnimation from "../CSSBuild/infiniteHorizontalScroll";
+import addScrollAnimation from "../uiEffects/infiniteHorizontalScroll";
 /**
  * Adds CSS to a newly created page.
  */
 import homePageCSS from 'bundle-text:../styles/homePage.css';
 import { queryElementGroup } from "../utils/DOMUtils";
+import { elementGroups, removeListeners } from "../data/DOMElements";
+import router from "../services/Router";
 
 
 /**
@@ -18,15 +20,50 @@ export default class HomePage extends BaseComponent {
     */
     this.templateID = 'home-page-template';
     this.pageStyles = homePageCSS;
-    console.log('root', this.root);
-    this.scrollers = null;
+
+  }
+  /**
+   * Gets page-specific nav DOM elements and stores fetched element list in the DOM element store object ('elementGroups').
+   * This way Router can also access those elements and navigate through pages.
+   * 
+   * Because this is a Single Page Application and each page content is created dynamically, and also each page has its own Shadow DOM,
+   * page content is not globally accessible. 
+   * And this gives router access to the page specific content.
+   */
+  getHomePageLinks() {
+    const navItems = queryElementGroup('.scroller-nav-item', this.root);
+    elementGroups.homePageNavItems = navItems;
+  }
+  /**
+   * Adds link click event listeners to the page specific nav elements.
+   * Because this is a Single Page Application and each page content is created dynamically, and also each page has its own Shadow DOM,
+   * page content is not globally accessible.
+   * Event listeners need to be applied to a newly created page each time.
+   */
+  addPageRouter() {
+    router.setupLinkListeners(elementGroups.homePageNavItems);
   }
   render() {
     if (!this.scrollers) {
       this.scrollers = queryElementGroup('.scroller', this.root);
-      console.log('this.scrollers', this.scrollers);
     }
     addScrollAnimation(this.scrollers);
+  }
+  /**
+   * A function that will be executed when a custom element ('home-page') is created.
+   * It adds additional functionalities that was declared in the 'BaseComponent'.
+   */
+  connectedCallback() {
+    super.connectedCallback();
+    this.getHomePageLinks();
+    this.addPageRouter();
+  }
+  /**
+   * Removes event listeners from a page specific element group to avoid memory leaks.
+   * It will be executed when a custom element ('home-page') is removed from the page.
+   */
+  disconnectedCallback() {
+    removeListeners(elementGroups.homePageNavItems);
   }
 }
 

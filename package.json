@@ -26,11 +26,22 @@
   "homepage": "https://github.com/nino-b/Lexi-Wizard#readme",
   "devDependencies": {
     "@parcel/transformer-inline-string": "^2.12.0",
+    "browserify-zlib": "^0.2.0",
+    "buffer": "^6.0.3",
     "concurrently": "^8.2.2",
+    "crypto-browserify": "^3.12.0",
+    "events": "^3.3.0",
     "nodemon": "^3.1.3",
     "parcel": "^2.12.0",
     "parcel-reporter-static-files-copy": "^1.5.3",
-    "rimraf": "^5.0.7"
+    "path-browserify": "^1.0.1",
+    "process": "^0.11.10",
+    "querystring-es3": "^0.2.1",
+    "rimraf": "^5.0.7",
+    "stream-browserify": "^3.0.0",
+    "stream-http": "^3.2.0",
+    "url": "^0.11.3",
+    "util": "^0.12.5"
   },
   "dependencies": {
     "body-parser": "^1.20.2",
