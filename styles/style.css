@@ -38,6 +38,24 @@ body {
   height: 100vh;
 }
 
+
+/* General */
+button,
+a {
+  cursor: pointer;
+}
+
+button {
+  transition: transform .13s ease;
+}
+button:hover {
+  transform: scale(1.05);
+}
+button:active {
+  transform: scale(1.1);
+}
+
+/* ************************************************** */
 main {
   height: 100%;
   width: 100%;
@@ -109,6 +127,7 @@ a[data-active="true"]::after {
   transform: scale(1.1);
 }
 /* footer */
+footer .settings-btn,
 footer .nav-item {
   font-size: .9rem;
 }
@@ -134,4 +153,54 @@ body {
 }
 #footer-nav-border {
   box-shadow: 0 -.3rem .5rem var(--secondary-dark);
+}
+
+/* Settings Button */
+.settings-btn {
+  border: 1px solid transparent;
+  border-radius: .5rem;
+}
+
+header .settings-btn {
+  padding: .45rem 1.2rem;
+  background-image: var(--light-bg-image
+  );
+}
+footer .settings-btn {
+  padding: .4rem .6rem;
+  background-color: var(--primary-dark);
+}
+
+
+/* Dialog box animations */
+
+dialog {
+  animation: open-dialog-box 150ms ease-in forwards;
+}
+@keyframes open-dialog-box {
+  0% {
+      opacity: 0;
+      transform: scale(0.5);
+      visibility: hidden; 
+  }
+  100% {
+      opacity: 1;
+      transform: scale(1);
+      visibility: visible;
+  }
+}
+#close-dialog-animation {
+  animation: close-dialog-box 100ms ease-out forwards;
+}
+@keyframes close-dialog-box {
+    0% {
+        opacity: 1;
+        transform: scale(1);
+        visibility: visible;  
+    }
+    100% {
+        opacity: 0;
+        transform: scale(0.5);
+        visibility: hidden; 
+    }
 }

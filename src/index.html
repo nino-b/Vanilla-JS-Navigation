@@ -20,22 +20,35 @@
                     <a href="/translate" class="nav-item" data-active="false" aria-label="Translate">Translate</a>
                 </li>
                 <li>
-                    <a href="/games" class="nav-item" data-active="false" aria-label="Home">Games</a>
+                    <a href="/games" class="nav-item" data-active="false" aria-label="Games">Games</a>
                 </li>
                 <li>
-                    <a href="/vocabulary" class="nav-item" data-active="false" aria-label="Home">Vocabulary</a>
+                    <a href="/vocabulary" class="nav-item" data-active="false" aria-label="Vocabulary">Vocabulary</a>
                 </li>
                 <li>
-                    <a href="/grammar" class="nav-item" data-active="false" aria-label="Home">Grammar</a>
+                    <a href="/grammar" class="nav-item" data-active="false" aria-label="Grammar">Grammar</a>
                 </li>
                 <li>
-                    <a href="/saved" class="nav-item" data-active="false" aria-label="Home">Saved</a>
+                    <a href="/saved" class="nav-item" data-active="false" aria-label="Saved">Saved</a>
                 </li>
                 <li>
-                    <a href="/search-history" class="nav-item" data-active="false" aria-label="Home">Search History</a>
+                    <a href="/search-history" class="nav-item" data-active="false" aria-label="Search History">Search History</a>
                 </li>
-                <li>
-                    <a href="/settings" class="nav-item" data-active="false" aria-label="Home">Settings</a>
+                <li class="settings-dialog-container" data-id="settings">
+                    <button class="settings-btn open-dialog" data-id="settings" aria-label="Settings">Settings</button>
+                    <dialog class="settings-dialog dialog-box" data-id="settings">
+                        <select id="theme">
+                            <option value="system" selected>System</option>
+                            <option value="dark">Dark</option>
+                            <option value="light">Light</option>
+                        </select>
+                        <label for="theme">Theme</label>
+
+                        <input type="checkbox" id="disable-animation" name="disable-animation">
+                        <label for="disable-animation">Disable Animations</label>
+
+                        <button class="close-dialog-btn" data-id="settings" data-action-type="close-dialog">Close</button>                          
+                    </dialog>
                 </li>
             </ul>
         </nav>
@@ -54,25 +67,25 @@
                     <a href="/translate" class="nav-item footer-nav" data-active="false" aria-label="Translate">Translate</a>
                 </li>
                 <li>
-                    <a href="/games" class="nav-item footer-nav" data-active="false" aria-label="Home">Games</a>
+                    <a href="/games" class="nav-item footer-nav" data-active="false" aria-label="Games">Games</a>
                 </li>
                 <li>
-                    <a href="/vocabulary" class="nav-item footer-nav" data-active="false" aria-label="Home">Vocabulary</a>
+                    <a href="/vocabulary" class="nav-item footer-nav" data-active="false" aria-label="Vocabulary">Vocabulary</a>
                 </li>
                 <li>
-                    <a href="/grammar" class="nav-item footer-nav" data-active="false" aria-label="Home">Grammar</a>
+                    <a href="/grammar" class="nav-item footer-nav" data-active="false" aria-label="Grammar">Grammar</a>
                 </li>
                 <li>
-                    <a href="/saved" class="nav-item footer-nav" data-active="false" aria-label="Home">Saved</a>
+                    <a href="/saved" class="nav-item footer-nav" data-active="false" aria-label="Saved">Saved</a>
                 </li>
                 <li>
-                    <a href="/search-history" class="nav-item footer-nav" data-active="false" aria-label="Home">Search History</a>
+                    <a href="/search-history" class="nav-item footer-nav" data-active="false" aria-label="Search History">Search History</a>
                 </li>                
                 <li>
-                    <a href="/about" class="nav-item footer-nav" data-active="false" aria-label="Home">About</a>
+                    <a href="/about" class="nav-item footer-nav" data-active="false" aria-label="About">About</a>
                 </li>
                 <li>
-                    <a href="/settings" class="nav-item" data-active="false" aria-label="Home">Settings</a>
+                    <button class="settings-btn open-dialog" data-id="settings" aria-label="Settings">Settings</button>
                 </li>
             </ul>
         </nav>
@@ -110,7 +123,7 @@
             </section>
 
 
-            <nav id="home-page-scroller" class="scroller" data-animated="false">
+            <nav id="home-page-scroller" class="scroller" data-animated="true">
                 <ul class="scroller-inner">
                     <li>
                         <a class="nav-item scroller-nav-item" href="/games">Games</a>

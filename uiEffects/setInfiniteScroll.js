@@ -4,7 +4,7 @@
 /**
  * exports a function so that parser will look into this file and execute the if statement
  */
- export default function addScrollAnimation(scrollerList) {
+ export default function setInfiniteScroll(scrollerList) {
   scrollerList.forEach(scroller => {
     if (scroller.dataset.animated !== "false") {
       //scroller.setAttribute('data-animated', true);

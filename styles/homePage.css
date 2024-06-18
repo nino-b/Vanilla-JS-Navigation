@@ -1,44 +1,4 @@
-:root {
-  --nav-border: #10273f;
-  --theme-system: #0c2036;
-  --nav-text: #abc1d0;
-  --text: #ffffff;
-
-  --primary-light: #dae5fc;
-  --primary-dark: #9dbff9;
-
-  --secondary-light: #2c5270;
-  --secondary-dark: #1b354b;
-
-  --light-bg-image: linear-gradient(45deg, var(--primary-light), var(--primary-dark));
-  --dark-bg-image: linear-gradient(45deg, var(--secondary-light), var(--secondary-dark));
-
-  --border-radius: .4rem;
-}
-/* 
-#home-page-container
-  #english-level-section
-
-  #translate-section
-    #translate-section h3
-    #translate-form
-      #translate-input
-      #voice-translation
-        #voice-translation img
-
-  #home-page-scroller .scroller
-    .scroller-inner
-      .scroller-inner li
-        .scroller-nav-item
-
-
-*/
-
 /* General Styles */
-
-img {
-  height: 1rem;
-}
 
 * {
   color: var(--secondary-dark);
@@ -73,7 +33,7 @@ label[for="english-level"] {
   flex-flow: column nowrap;
 
   width: 50%;
-  margin-top: 3rem;
+  margin-top: 4rem;
 }
 
 #translate-section h3 {
@@ -141,6 +101,7 @@ label[for="english-level"] {
   height: 6rem;
 
   background-image: var(--light-bg-image);
+  box-shadow: 0 0 1rem #396a90;
   font-size: 1.3rem;
   font-weight: bold;
 

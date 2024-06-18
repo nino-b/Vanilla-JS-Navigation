@@ -25,6 +25,3 @@ async function fetchData(url, parseAsJSON = true) {
     console.error('Fetch error:', error);
   }
 };
-
-
-export { fetchData };

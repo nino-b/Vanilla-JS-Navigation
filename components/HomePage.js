@@ -1,11 +1,13 @@
 import BaseComponent from "./BaseComponent";
-import addScrollAnimation from "../uiEffects/infiniteHorizontalScroll";
+import addInfiniteScroll from "../uiEffects/toggleAnimations";
+
 /**
  * Adds CSS to a newly created page.
  */
 import homePageCSS from 'bundle-text:../styles/homePage.css';
-import { queryElementGroup } from "../utils/DOMUtils";
-import { elementGroups, removeListeners } from "../data/DOMElements";
+import removeListeners from "../utils/DOMUtils/removeListeners";
+import queryElementGroup from "../utils/DOMUtils/queryElementGroup";
+import { elementGroups } from "../data/DOMElements";
 import router from "../services/Router";
 
 
@@ -20,7 +22,6 @@ export default class HomePage extends BaseComponent {
     */
     this.templateID = 'home-page-template';
     this.pageStyles = homePageCSS;
-
   }
   /**
    * Gets page-specific nav DOM elements and stores fetched element list in the DOM element store object ('elementGroups').
@@ -44,10 +45,7 @@ export default class HomePage extends BaseComponent {
     router.setupLinkListeners(elementGroups.homePageNavItems);
   }
   render() {
-    if (!this.scrollers) {
-      this.scrollers = queryElementGroup('.scroller', this.root);
-    }
-    addScrollAnimation(this.scrollers);
+    console.log('BaseComponent rendered!');
   }
   /**
    * A function that will be executed when a custom element ('home-page') is created.
@@ -57,6 +55,7 @@ export default class HomePage extends BaseComponent {
     super.connectedCallback();
     this.getHomePageLinks();
     this.addPageRouter();
+    addInfiniteScroll();
   }
   /**
    * Removes event listeners from a page specific element group to avoid memory leaks.

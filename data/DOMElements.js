@@ -1,4 +1,5 @@
-import { queryElementGroup, queryElement } from "../utils/DOMUtils"
+import queryElementGroup from "../utils/DOMUtils/queryElementGroup";
+import queryElement from "../utils/DOMUtils/queryElement";
 
 /**
  * Holds queried elements from the DOM.
@@ -14,10 +15,15 @@ const elementGroups = {
   headerNavItems: queryElementGroup('header .nav-item'),
   footerNavItems: queryElementGroup('footer .nav-item'),
   homePageNavItems: null,
+  openDialogBtns: queryElementGroup('.open-dialog'),
+  closeDialogBtns: queryElementGroup('.close-dialog'),
+  dialogBoxes: queryElementGroup('.dialog-box'),
 }
 
 const elements = {
   main: queryElement('main'),
+  selectTheme: queryElement('#theme'),
+  enableAnimation: queryElement('#disable-animation'),
 }
 
 
