@@ -37,15 +37,16 @@
                 <li class="settings-dialog-container" data-id="settings">
                     <button class="settings-btn open-dialog" data-id="settings" aria-label="Settings">Settings</button>
                     <dialog class="settings-dialog dialog-box" data-id="settings">
-                        <select id="theme">
+    <!--                     <select id="theme">
                             <option value="system" selected>System</option>
                             <option value="dark">Dark</option>
                             <option value="light">Light</option>
                         </select>
-                        <label for="theme">Theme</label>
-
-                        <input type="checkbox" id="disable-animation" name="disable-animation">
-                        <label for="disable-animation">Disable Animations</label>
+                        <label for="theme">Theme</label> -->
+                        <div>
+                            <input type="checkbox" id="toggle-animation" class="toggle" name="toggle-animation">
+                            <label for="toggle-animation">Disable Animations</label>
+                        </div>
 
                         <button class="close-dialog-btn" data-id="settings" data-action-type="close-dialog">Close</button>                          
                     </dialog>

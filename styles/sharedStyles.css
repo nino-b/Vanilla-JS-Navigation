@@ -61,7 +61,6 @@ button:active {
   display: flex;
   flex-wrap: nowrap;
   width: fit-content;
-  padding-block: 1rem;
   animation: scroll 40s linear infinite;
 }
 

@@ -1,5 +1,5 @@
 import BaseComponent from "./BaseComponent";
-import addInfiniteScroll from "../uiEffects/toggleAnimations";
+import duplicateContent from "../uiEffects/duplicateContent";
 
 /**
  * Adds CSS to a newly created page.
@@ -55,7 +55,7 @@ export default class HomePage extends BaseComponent {
     super.connectedCallback();
     this.getHomePageLinks();
     this.addPageRouter();
-    addInfiniteScroll();
+    duplicateContent();
   }
   /**
    * Removes event listeners from a page specific element group to avoid memory leaks.
