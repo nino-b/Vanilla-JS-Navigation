@@ -11,4 +11,10 @@ window.app = {};
  */
 app.pageContext = null;
 
+/**
+ * Saves settings parameter values. This way specific settings are globally accessable (e.g. we save animation settings in event listener callback and use newest values in a page Component).
+ */
+app.settings = {};
+app.settings.animations = null;
+
 export default app;

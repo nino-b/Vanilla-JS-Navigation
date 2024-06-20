@@ -1,14 +1,14 @@
 import BaseComponent from "./BaseComponent";
-import duplicateContent from "../uiEffects/duplicateContent";
+import removeListeners from "../utils/logicUtils/removeListeners";
+import queryElementGroup from "../utils/DOMUtils/queryElementGroup";
+import { elementGroups } from "../data/DOMElements";
+import router from "../services/Router";
 
 /**
  * Adds CSS to a newly created page.
  */
 import homePageCSS from 'bundle-text:../styles/homePage.css';
-import removeListeners from "../utils/DOMUtils/removeListeners";
-import queryElementGroup from "../utils/DOMUtils/queryElementGroup";
-import { elementGroups } from "../data/DOMElements";
-import router from "../services/Router";
+
 
 
 /**
@@ -21,6 +21,9 @@ export default class HomePage extends BaseComponent {
     * @type {string | null} - An ID of HTML template tag, which contains template for specific page.
     */
     this.templateID = 'home-page-template';
+    /** 
+    * @type {string | null} - A page specific styles that was imported ('import homePageCSS from 'bundle-text:../styles/homePage.css';).
+    */
     this.pageStyles = homePageCSS;
   }
   /**
@@ -44,9 +47,6 @@ export default class HomePage extends BaseComponent {
   addPageRouter() {
     router.setupLinkListeners(elementGroups.homePageNavItems);
   }
-  render() {
-    console.log('BaseComponent rendered!');
-  }
   /**
    * A function that will be executed when a custom element ('home-page') is created.
    * It adds additional functionalities that was declared in the 'BaseComponent'.
@@ -55,14 +55,13 @@ export default class HomePage extends BaseComponent {
     super.connectedCallback();
     this.getHomePageLinks();
     this.addPageRouter();
-    duplicateContent();
   }
   /**
    * Removes event listeners from a page specific element group to avoid memory leaks.
    * It will be executed when a custom element ('home-page') is removed from the page.
    */
   disconnectedCallback() {
-    removeListeners(elementGroups.homePageNavItems);
+    removeListeners('popstate', router.setupPopstateCallback,elementGroups.homePageNavItems);
   }
 }
 
@@ -75,4 +74,4 @@ export default class HomePage extends BaseComponent {
  * Custom Element's name should always be written with hyphen (-), 
  * this ensures that there won't be any future inconsistencies.
  */
-customElements.define('home-page', HomePage);
+customElements.define('home-page',  HomePage);

@@ -2,6 +2,7 @@ import pageConfig from "../data/pageConfig";
 
 import toggleLinkUnderline from "../uiEffects/toggleLinkUnderline";
 import { elementGroups, elements } from "../data/DOMElements";
+import addListeners from "../utils/logicUtils/addListeners";
 
 /**
  * A class to handle client-side routing in a single-page application.
@@ -26,9 +27,10 @@ class Router {
    * By using bind(this), we explicitly set the this context of the handleClick method to the instance of the Router class.
   */
   setupLinkListeners(links = this.navItems) {
-    links.forEach(a => {
+    addListeners('click', this.handleClick.bind(this), links);
+/*     links.forEach(a => {
       a.addEventListener('click', this.handleClick.bind(this));
-    });
+    }); */
   }
   /**
    * Handles click events for links to prevent page reload and navigate internally.
@@ -39,7 +41,6 @@ class Router {
   handleClick(event) {
     event.preventDefault();
     const href = event.target.getAttribute('href');
-    console.log('footerNav: ', elementGroups.footerNavItems);
     toggleLinkUnderline(elementGroups.headerNavItems, href, event.target, elementGroups.footerNavItems);
     this.go(href);
   }
@@ -47,9 +48,16 @@ class Router {
    * Set up event listener for `popstate` event to handle back/forward navigation.
   */
  setupPopStateListener() {
-  window.addEventListener('popstate', event => {
+  addListeners('popstate', this.setupPopstateCallback.bind(this));
+/*   window.addEventListener('popstate', event => {
     this.go(event.state.route, false);
-  });
+  }); */
+ }
+ /**
+  * Sets up a callback function for a 'popstate' event listener then to be bound with 'this' in current context.
+  */
+ setupPopstateCallback(event) {
+  this.go(event.state.route, false);
  }
   /**
    * Process the initial URL to handle direct link access without reloading.

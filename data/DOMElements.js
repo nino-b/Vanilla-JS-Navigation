@@ -23,7 +23,7 @@ const elementGroups = {
 const elements = {
   main: queryElement('main'),
   selectTheme: queryElement('#theme'),
-  toggleAnimation: queryElement('#toggle-animation'),
+  toggleAnimation: queryElement('#disable-animation'),
 }
 
 

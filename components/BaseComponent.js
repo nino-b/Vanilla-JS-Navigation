@@ -1,5 +1,7 @@
 import setUpTemplate from "../utils/logicUtils/setUpTemplate.js";
 import setupCSS from "../utils/CSSUtils/setUpCSS.js";
+import animationManager from "../uiEffects/toggleAnimations";
+
 
 import reset from "bundle-text:../styles/reset.css";
 import sharedStyles from "bundle-text:../styles/sharedStyles.css";
@@ -30,7 +32,7 @@ export default class BaseComponent extends HTMLElement {
   }
   /**
    * Saves 'this' context of newly created page in a global 'app' object.
-   * This way other functions can interact with newly created page (a Shadow DOM) without overloading Components.
+   * This way other functions can interact with newly created page (a Shadow DOM) without overloading Components with other functionalities and adhering SRP.
    */
   savePageContext() {
     app.pageContext = this;
@@ -45,11 +47,16 @@ export default class BaseComponent extends HTMLElement {
    * A callback function for a HTML Custom Element that will be executed when the element is rendered.
    * Appends HTML template to the Shadow DOM, adds styles and if there is dynamic data to be rendered, it renders that too.
    * Saves page context in a global 'app' object.
+   * 
+   * 'import animationManager from "../uiEffects/toggleAnimations";' is added because 
+   * when a page is created whether to add or not animations will be taken in consideration. 
+   * By default, in HTML I add animations.
    */
   connectedCallback() {
     setUpTemplate(this.root, this.templateID);
     setupCSS([reset, sharedStyles, this.pageStyles], this.root);
     this.savePageContext();
     this.render();
+    animationManager.toggleAnimationsAndScroll(app.settings.animations);
   }
 }
