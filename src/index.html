@@ -7,6 +7,8 @@
     <link rel="icon" href="/assets/icons/favicon.svg">
     <link rel="stylesheet" href="/styles/reset.css">
     <link rel="stylesheet" href="/styles/style.css">
+    <!-- Add font awesome library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <script type="module" src="main.js" defer></script>
 </head>
 <body>
@@ -114,7 +116,7 @@
             <section id="translate-section">
                 <h3>English - English Dictionary</h3>
                 <form id="translate-form">
-                    <input type="text" id="translate-input" name="translate-input" placeholder="Search a word ⌕" >
+                    <input type="text" id="translate-input" name="translate-input" placeholder="Search a word or a phrase ⌕">
 
                     <button id="voice-translation">
                         <img src="/assets/icons/speak_off.svg">
@@ -146,6 +148,75 @@
         </div>
     </template>
 
-    <template id="translate-page-template"></template>
+    <template id="translate-page-template">
+        <div id="translate-page-container">
+            <section id="search-container">
+                <button id="clear-search-input">&#10006;</button>
+                <input type="text" id="dictionary-input" name="translate-input" placeholder="Search a word or a phrase ⌕">
+            </section>
+
+
+
+            <section id="result-container">
+                <button id="save-search-result">
+                    <div>&star;</div>
+                    <div id="item-saved" hidden>&starf;</div>  
+                </button>
+
+
+                <p id="translate-input">Hello</p>
+                <p id="pronunciation">həˈlō</p>
+                <button id="listen">
+                    <div>&#128363;</div>
+                    <div hidden>&#128364;</div>
+                </button>
+                <div class="definition">
+                    <h4 class="part-of-speech"></h4>
+                    <div class="part-of-speech-example">
+                        <p class="explanation"></p>
+                        <p class="example-in-sentence"></p>
+                    </div>
+                    <h4 class="synonyms"></h4>
+                    <p class="synonym-list"></p>
+                </div>
+            </section>
+        </div>
+    </template>
+
+
+
+
+
+
+
+
+<!-- 
+    <button id="copy">
+        <img src="/assets//icons/copy_on.svg">
+        <img src="/assets//icons/copy_off.svg" hidden>
+    </button>    
+
+-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <template id="games-page-template"></template>
+    <template id="vocabulary-page-template"></template>
+    <template id="grammar-page-template"></template>
+    <template id="saved-page-template"></template>
+    <template id="search-history-page-template"></template>
+    <template id="about-page-template"></template>
 </body>
 </html>

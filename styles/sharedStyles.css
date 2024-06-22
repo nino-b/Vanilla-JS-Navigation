@@ -9,6 +9,8 @@
   --primary-selection-dark: #2a3b5d;
   --secondary-selection-dark: #34495e;
   --accent-selection-dark: #49a9ee;
+
+  --dictionary-input-height: 5rem;
 }
 
 *,

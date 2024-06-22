@@ -25,6 +25,9 @@
     --light-bg-image: linear-gradient(45deg, var(--primary-light), var(--primary-dark));
     --dark-bg-image: linear-gradient(45deg, var(--secondary-light), var(--secondary-dark));
 
+    --button-on-hover: #5882ca;
+    --active-button: #3660a9;
+
     --border-radius: .4rem;
     --common-padding: .5rem .8rem;
 }
