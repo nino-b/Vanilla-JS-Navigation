@@ -1,7 +1,7 @@
 {
-  "name": "lexi-wizard",
+  "name": "vanilla-js-navigation",
   "version": "1.0.0",
-  "description": "Lexi Wizard app by Nino Burtchuladze",
+  "description": "Vanilla JS Navigation app by Nino Burtchuladze",
   "scripts": {
     "start": "parcel src/index.html",
     "build": "parcel build src/index.html",
@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/nino-b/Lexi-Wizard.git"
+    "url": "git+https://github.com/nino-b/Vanilla-JS-Navigation.git"
   },
   "keywords": [
     "LexiWizard"
@@ -17,9 +17,9 @@
   "author": "\"Nino Burtchuladze\"",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/nino-b/Lexi-Wizard/issues"
+    "url": "https://github.com/nino-b/Vanilla-JS-Navigation/issues"
   },
-  "homepage": "https://github.com/nino-b/Lexi-Wizard#readme",
+  "homepage": "https://github.com/nino-b/Vanilla-JS-Navigation#readme",
   "devDependencies": {
     "@parcel/transformer-inline-string": "^2.12.0",
     "browserify-zlib": "^0.2.0",
